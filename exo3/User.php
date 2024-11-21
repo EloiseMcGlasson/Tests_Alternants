@@ -3,14 +3,17 @@
 class User
 {
     private int $id;
-    private $firstName;
-    private string $lastname;
+    private string $firstName;
+    private string $lastName;
+    private string $mailAddress;
+    private float $balance;
 
-    public function __construct(string $firstname, string $lastname, string $mailAddress)
+    public function __construct(string $firstName, string $lastName, string $mailAddress, float $balance)
     {
-        $this->firstname    = $firstname;
-        $this->lastname     = $lastname;
-        $this->mailAddress= $mailAddress;
+        $this->firstName    = $firstName;
+        $this->lastName     = $lastName;
+        $this->mailAddress  = $mailAddress;
+        $this->balance      = $balance;
     }
 
     function getId(): int
@@ -18,17 +21,41 @@ class User
         return $this->id;
     }
 
-    function getFirstname(): int
+    function getFirstName(): string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
-    function getLastname(){
-        return $this->lastname;
+    function getLastName()
+    {
+        return $this->lastName;
     }
 
     function getMailAddress()
     {
-        return $mailAddress;
+        return $this->mailAddress;
+    }
+
+    function getFullName()
+    {
+        return $this->firstName . " " . $this->lastName;
+    }
+
+    /**
+     * Get the value of balance
+     */ 
+    public function getBalance()
+    {
+            return $this->balance;
+    }
+
+    /**
+     * Set the value of balance
+     *
+     * @return  self
+     */ 
+    public function setBalance($balance)
+    {
+        return $this->balance = $balance;
     }
 }
